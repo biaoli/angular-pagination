@@ -2,6 +2,7 @@
   <div class="row">
     <div class = "col-4" *ngFor = "let i of picsum | async " >
       <div class = "card">
+        <img class = "image-cover" [src] = "i.download_url" />
         <h5>{{i.author}}</h5>
       </div>
     </div>
