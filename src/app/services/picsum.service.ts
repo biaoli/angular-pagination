@@ -8,8 +8,8 @@ export class PicsumService implements OnInit{
   constructor(private httpClient : HttpClient ) { }
 
   ngOnInit(): void {
-  throw new Error('Method not implemented.');
-
+    throw new Error('Method not implemented.');
+    this.getPicsum(1);
   }
 
   getPicsum = ((pageNo : number) : void => {
