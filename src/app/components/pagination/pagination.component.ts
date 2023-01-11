@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
+  picsum : any;
+  constructor( private httpClient : HttpClient ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() : void {
+    this.getPicsum(1);
   }
 
+  getPicsum(pageNo : number) {
+  throw new Error('Function not implemented.');
+  this.picsum = this.httpClient.get('https://picsum.photos/v2/list?page=' + pageNo + '&limit=8' );
+  }
 }
