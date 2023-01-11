@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
 import { Observable } from 'rxjs';
+import { PicsumService } from 'src/app/services/picsum.service';
 
 @Component({
   selector: 'app-pagination',
@@ -10,14 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class PaginationComponent implements OnInit {
   picsum : Observable<any>;
-  constructor( private httpClient : HttpClient ) { }
+  constructor( private picsumService : PicsumService ) { }
 
   ngOnInit() : void {
-    this.getPicsum(1);
+    this.getImages();
   }
-
-  getPicsum(pageNo : number) {
-  throw new Error('Function not implemented.');
-  this.picsum = this.httpClient.get('https://picsum.photos/v2/list?page=' + pageNo + '&limit=8' );
+  getImages() {
+    this.picsum = this.picsumService.getPicsum(1);
   }
 }
